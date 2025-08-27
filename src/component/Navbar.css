@@ -24,8 +24,8 @@ button{font:inherit}
     /* width:min(1180px,92%); */
     margin-inline:auto; 
     /* border: 10px solid blue; */
-    max-width: 1600px; /* don’t exceed this */
-    width: 100%;       /* take full width on smaller screens */
+    max-width: 1180px; /* don’t exceed this */
+    /* width: 100%;       take full width on smaller screens */
     margin: 0 auto;    /* center when screen is wider */
     /* padding: 500px; */
 }
@@ -48,7 +48,7 @@ button{font:inherit}
     align-items:center;
     gap:1rem;
     flex-wrap:wrap;
-    font-size: 1.2rem;
+    font-size: 1rem;
     /* border: 10px solid red; */
 }
 .badge {
@@ -91,7 +91,7 @@ header.sticky .container {
     justify-content:space-between;
     gap:1rem;
     padding:.7rem 0;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     /* border:10px solid red; */
 }
 .brand{display:flex;
@@ -101,8 +101,8 @@ header.sticky .container {
     color:var(--brand-dark)
 }
 .brand img{
-    width:260px;
-    height:115px;border-radius:8px;
+    width:160px;
+    height:95px;border-radius:8px;
     padding-bottom: 25px;
 }
 
