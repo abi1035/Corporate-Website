@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       {/* Utility (top) bar */}
-      <div className="util" role="navigation" aria-label="Top utility links">
+      <div className="util util--solid" role="navigation" aria-label="Top utility links">
         <div className="container row">
           <div className="util-left">
             <a className="badge" href="#">Family Resources</a>
@@ -36,7 +36,7 @@ export default function Navbar() {
           </div>
           <div className="util-right">
             <a className="phone" href="tel:+18337185050" aria-label="Call 1-833-718-5050">📞 1‑833‑718‑5050</a>
-            <button className="search" aria-label="Search">🔍</button>
+            {/* <button className="search" aria-label="Search">🔍</button> */}
           </div>
         </div>
       </div>
@@ -46,10 +46,10 @@ export default function Navbar() {
         <div className="container nav" ref={wrapRef}>
           <a className="brand" href="#" aria-label="Company home">
             <img
-              src="https://dummyimage.com/80x80/e24e2a/ffffff.png&text=LTC"
+              src="./Logo.png"
               alt="Logo"
             />
-            <span>LTC Company</span>
+            {/* <span>LTC Company</span>No */}
           </a>
 
           {/* Mobile hamburger */}
@@ -65,7 +65,7 @@ export default function Navbar() {
           <div className={`menu-wrap ${mobileOpen ? "open" : ""}`}>
             <nav aria-label="Primary">
               <ul id="primaryMenu" className="menu">
-                <li
+                {/* <li
                   className={`dropdown ${openDropdown === "retirement" ? "is-open" : ""}`}
                 >
                   <a
@@ -90,7 +90,7 @@ export default function Navbar() {
                     <a href="#" role="menuitem">Independent Living</a>
                     <a href="#" role="menuitem">Assisted Living</a>
                   </div>
-                </li>
+                </li> */}
 
                 <li className={`dropdown ${openDropdown === "ltc" ? "is-open" : ""}`}>
                   <a

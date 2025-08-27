@@ -1,3 +1,4 @@
+import "./Home.css";
 
 
 
@@ -5,7 +6,9 @@
 export default function Home() {
   return (
     <>
-      <h1>Hello World</h1>
+      <div className="hero">
+        <img src="Hero1.png" alt="Hero" />
+      </div>
     </>
   );
 }
