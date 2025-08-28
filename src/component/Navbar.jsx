@@ -24,107 +24,70 @@ export default function Navbar() {
   return (
     <>
       {/* Utility (top) bar */}
-      <div className="util util--solid" role="navigation" aria-label="Top utility links">
-        <div className="container row">
-          <div className="util-left">
-            <a className="badge" href="#">Family Resources</a>
-            <a href="#">Uplifting News</a>
-            <a href="#">Our Advertising</a>
-            <a href="#">Our Blog</a>
-            <a href="#">Investors</a>
-            <a href="#">Contact Us</a>
-          </div>
-          <div className="util-right">
-            <a className="phone" href="tel:+18337185050" aria-label="Call 1-833-718-5050">📞 1‑833‑718‑5050</a>
-            {/* <button className="search" aria-label="Search">🔍</button> */}
-          </div>
-        </div>
-      </div>
+   
 
       {/* Sticky main header */}
-      <header className="sticky" role="banner">
-        <div className="container nav" ref={wrapRef}>
-          <a className="brand" href="#" aria-label="Company home">
-            <img
-              src="./Logo.png"
-              alt="Logo"
-            />
-            {/* <span>LTC Company</span>No */}
-          </a>
+<header className="sticky hero-header" role="banner">
+  <div className="container">
+    {/* Utility Row */}
+    <div className="util-row">
+      <div className="util-left">
+        <a className="badge" style={{color: "#000",}} href="#">Family Resources</a>
+        <a href="#">Uplifting News</a>
+        <a href="#">Our Advertising</a>
+        <a href="#">Our Blog</a>
+        <a href="#">Investors</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div className="util-right">
+        <span className="phone">📞 1-833-718-5050</span>
+      </div>
+    </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="hamburger"
-            aria-expanded={mobileOpen}
-            aria-controls="primaryMenu"
-            onClick={() => setMobileOpen((v) => !v)}
-          >
-            ☰ Menu
-          </button>
+    {/* Main Nav Row */}
+    <div className="nav">
+      <a className="brand" href="#">
+        <img src="./Logo1.png" alt="Logo"/>
+      </a>
 
-          <div className={`menu-wrap ${mobileOpen ? "open" : ""}`}>
-            <nav aria-label="Primary">
-              <ul id="primaryMenu" className="menu">
-                {/* <li
-                  className={`dropdown ${openDropdown === "retirement" ? "is-open" : ""}`}
-                >
-                  <a
-                    href="#"
-                    aria-haspopup="true"
-                    aria-expanded={openDropdown === "retirement"}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setOpenDropdown((d) => (d === "retirement" ? null : "retirement"));
-                    }}
-                    onKeyDown={(e) => {
-                      if (["Enter", " ", "ArrowDown"].includes(e.key)) {
-                        e.preventDefault();
-                        setOpenDropdown("retirement");
-                      }
-                    }}
-                  >
-                    Retirement ▾
-                  </a>
-                  <div className="submenu" role="menu">
-                    <a href="#" role="menuitem">Overview</a>
-                    <a href="#" role="menuitem">Independent Living</a>
-                    <a href="#" role="menuitem">Assisted Living</a>
-                  </div>
-                </li> */}
+      {/* Mobile Hamburger */}
+      <button
+        className="hamburger"
+        aria-expanded={mobileOpen}
+        aria-controls="primaryMenu"
+        onClick={() => setMobileOpen((v) => !v)}
+      >
+        ☰ Menu
+      </button>
 
-                <li className={`dropdown ${openDropdown === "ltc" ? "is-open" : ""}`}>
-                  <a
-                    href="#"
-                    aria-haspopup="true"
-                    aria-expanded={openDropdown === "ltc"}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setOpenDropdown((d) => (d === "ltc" ? null : "ltc"));
-                    }}
-                    onKeyDown={(e) => {
-                      if (["Enter", " ", "ArrowDown"].includes(e.key)) {
-                        e.preventDefault();
-                        setOpenDropdown("ltc");
-                      }
-                    }}
-                  >
-                    Long‑Term & Continuing Care ▾
-                  </a>
-                  <div className="submenu" role="menu">
-                    <a href="#" role="menuitem">Long‑Term Care</a>
-                    <a href="#" role="menuitem">Complex Continuing Care</a>
-                    <a href="#" role="menuitem">Respite & Convalescent</a>
-                  </div>
-                </li>
+      <div className={`menu-wrap ${mobileOpen ? "open" : ""}`}>
+        <nav aria-label="Primary">
+          <ul id="primaryMenu" className="menu">
+            <li className={`dropdown ${openDropdown === "ltc" ? "is-open" : ""}`}>
+              <a href="#" onClick={(e)=>{ e.preventDefault(); setOpenDropdown(openDropdown==="ltc"?null:"ltc"); }}>
+                Long-Term & Continuing Care ▾
+              </a>
+              <div className="submenu">
+                <a href="#">Long-Term Care</a>
+                <a href="#">Complex Continuing Care</a>
+                <a href="#">Respite & Convalescent</a>
+              </div>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Find a Home</a></li>
+            <li><a href="#" className="cta hiring">Hiring Now</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+    <div className="hero-content">
+    <h1>We’re here to make your life better.</h1>
+    {/* <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.</p> */}
+    <a href="#learn-more" className="hero-btn">Discover More</a>
+  </div>
+</header>
 
-                <li><Link to="/about">About Us</Link></li>
-                <li><a href="#">Find a Home</a></li>
-                <li><Link to="/careers" className="cta hiring">Hiring Now</Link></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
     </>
   );
 }

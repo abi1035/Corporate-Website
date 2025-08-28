@@ -1,141 +1,349 @@
 /* ---------------------------------------------------------------------- */
 /* File: src/components/Navbar.css */
-/* Move this block into a file named Navbar.css and keep it next to JSX. */
+/* ---------------------------------------------------------------------- */
 :root{
---bg:#ffffff; /* background */
---ink:#0b1b2b; /* primary text */
---muted:#5b6b7a; /* secondary text */
---brand:#06def6; /* brand (sample orange) */
---brand-dark:#06def6;
---accent:#0a4aa4; /* action / link */
---surface:#f6f8fb; /* subtle surface */
---ring:#7fd3ea; /* focus ring */
---radius:12px;
---shadow:0 10px 30px rgba(11,27,43,.08);
+  --bg:#ffffff; /* background */
+  --ink:#0b1b2b; /* primary text */
+  --muted:#5b6b7a; /* secondary text */
+  --brand:#06def6; /* brand */
+  --brand-dark:#06def6;
+  --accent:#0a4aa4; /* action / link */
+  --surface:#f6f8fb; /* subtle surface */
+  --ring:#7fd3ea; /* focus ring */
+  --radius:12px;
+  --shadow:0 10px 30px rgba(11,27,43,.08);
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0}
-body{font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+html {
+  font-size: 16px;              /* base = 16px */
+  -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;   /* prevent mobile auto-resizing */
+}
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
 a{color:inherit;text-decoration:none}
 a:hover{opacity:.9}
 button{font:inherit}
 :focus-visible{outline:3px solid var(--ring);outline-offset:2px;border-radius:8px}
-.container{
-    /* width:min(1180px,92%); */
-    margin-inline:auto; 
-    /* border: 10px solid blue; */
-    max-width: 1180px; /* don’t exceed this */
-    /* width: 100%;       take full width on smaller screens */
-    margin: 0 auto;    /* center when screen is wider */
-    /* padding: 500px; */
-}
 
+.container{
+  max-width: 1280px; /* fixed desktop width */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;   /* keeps content off edges */
+}
 
 /* Utility Bar */
 .util{
-    background:rgba(255,255,255,.9);
-    backdrop-filter:saturate(180%) blur(8px);
-    border-bottom:1px solid #e7edf3;
-    font-size:.92rem;
-    /* border: 10px solid red; */
-    padding: 10px;
-    width: 1600px;
-    margin: 0 auto;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid #e7edf3;
+  font-size: 14px;   /* fixed */
+  padding: 8px 0;
+  width: 100%;
 }
-.util .row{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.45rem 0}
-.util-left,.util-right{
-    display:flex;
-    align-items:center;
-    gap:1rem;
-    flex-wrap:wrap;
-    font-size: 1rem;
-    /* border: 10px solid red; */
+
+
+
+.util a:hover{
+    background-color: #00e5ff;
+    
 }
+
+/* UTIL ROW merges into header */
+.util-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 12px; /* space before nav */
+}
+.util-left, .util-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.util-left:hover{
+    color: #e66b00;
+}
+
 .badge {
-  background: #06def6;   /* blue */
-  color: #000;           /* black text */
-  padding: .3rem .8rem;
+  background: #06def6;
+  color: #000000;
+  padding: 4px 12px;
   border-radius: 999px;
+  font-size: 14px;
   font-weight: 700;
+  transition: background 0.3s ease;
+
 }
-.badge:hover{
-    background-color: #00b4c8;
-}
-.util .phone{display:flex;align-items:center;gap:.4rem;font-weight:700}
-.util .search{border:1px solid #dbe6ef;border-radius:8px;background:#fff;padding:.25rem .5rem}
 
 
+.badge:hover{ background-color: #e66b00; }
+.util .phone{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;}
+.util .search{
+  border:1px solid #dbe6ef;
+  border-radius:8px;
+  background:#fff;
+  padding:4px 8px;
+  font-size:14px;
+}
+
+.hero-header .brand,
+.hero-header .util-row a,
+.hero-header .phone { color:#fff; }  /* make utils white too */
+
+.hero-header .cta.hiring {
+  background:#06def6;
+  color:#002a31;
+}
 /* Main Header */
+/* Header frame stays transparent */
 header.sticky{
-    /* position:sticky; */
-    top:0;
-    z-index:50;
-    background: transparent;   /* make the whole bar transparent */
-    border-bottom: none;       /* remove border from full width */
-    box-shadow:0 4px 14px rgba(11,27,43,.04);
-    /* border: 10px solid red; */
-    /* padding: 10px 120px */
+  position: relative;
+  z-index: 50;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
-header.sticky .container {
-  background: #fff;          /* white box only around nav content */
-  border-bottom: 1px solid #e7edf3;
-  box-shadow: 0 4px 14px rgba(11,27,43,.04);
-  border-radius: 0;          /* optional: can soften edges if you want */
-  padding: 15px;
+/* IMPORTANT: container must be transparent (no white here) */
+header.sticky .container{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0 24px;
+}
+/* Background image for the navbar */
+header.sticky.hero-header {
+  position: relative;
+  --hero-x: 50%;
+  --hero-y: -3%;   
+  z-index: 50;
+  min-height: 400px; /* hero height */
+  padding-top: 12px;
+
+  background-image:
+      linear-gradient(
+      rgba(0,0,0,0.55),   /* top fully dark */
+      rgba(0,0,0,0.55)    /* bottom equally dark */
+    ),
+    url("/Hero1.png");
+  background-size: cover;
+   background-position: var(--hero-x) var(--hero-y);
+  background-repeat: no-repeat;
+  /* border: 10px solid red; */
+  height: 650px;
 }
 
-.nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:1rem;
-    padding:.7rem 0;
-    font-size: 1.1rem;
-    /* border:10px solid red; */
-}
-.brand{display:flex;
-    align-items:center;
-    gap:.6rem;
-    font-weight:800;
-    color:var(--brand-dark)
-}
-.brand img{
-    width:160px;
-    height:95px;border-radius:8px;
-    padding-bottom: 25px;
+/* make sure the white “card” isn’t covering the hero on hero pages */
+header.sticky.hero-header .nav-card{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
+/* Default nav “card” (used on non-hero pages too) */
+.nav-card{
+  background:#fff;
+  border-bottom:1px solid #e7edf3;
+  box-shadow:0 4px 14px rgba(11,27,43,.04);
+  border-radius:8px;
+  padding:15px 24px;
+}
+
+
+
+
+
+
+
+
+/* Ensure the hero link color wins (place BEFORE the base .menu>li>a or add !important) */
+/* Controls the texts within the Navbar */
+.hero-header .menu>li>a { color:#000; }
+.hero-header .menu>li:hover>a { background:#06def6; color:#000000; }
+
+.hero-header .menu>li:focus-within>a{
+  background: rgba(255,255,255,.16);
+  color:#fff !important;
+}
+.hero-header .brand,
+.hero-header .brand span{ color:#fff; }
+.hero-header .cta.hiring {
+  background:#06def6;
+  color:#002a31;
+}
+
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding: 12px 12px;
+  font-size: 16px;
+  /* border: 10px solid red; */
+  background: rgba(255, 255, 255, 0.763); /* translucent white */
+  backdrop-filter: saturate(180%) blur(8px); /* subtle glass effect */
+  border-radius: 8px; /* optional, for a “card” look */
+}
+
+
+/* Logo */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  color:var(--brand-dark);
+  flex-shrink:0;
+}
+.brand img {
+  height: 60px;
+  width: auto;
+  /* filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)); */
+}
 
 /* Menu */
-nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:.4rem}
-.menu>li>a{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .8rem;border-radius:10px;color:#213446;font-weight:600}
-.menu>li:focus-within>a,.menu>li:hover>a{background:#00c8de; color: #000;}
-
+nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:16px;}
+.menu>li>a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 14px;   /* fixed button hit area */
+  border-radius:10px;
+  /* color:#213446; */
+  font-weight:600;
+  font-size:16px;      /* fixed font */
+  color: black;
+  transition: background 0.3s ease;
+  
+}
+.menu>li:focus-within>a,
+.menu>li:hover>a{background:#00c8de;color:#000;}
 
 /* Dropdowns */
 .dropdown{position:relative}
 .dropdown.is-open>.submenu{display:block}
-.submenu{display:none;position:absolute;left:0;top:calc(100% + .4rem);min-width:280px;background:#fff;border:1px solid #e7edf3;border-radius:12px;box-shadow:var(--shadow);padding:.5rem}
-.submenu a{display:block;padding:.55rem .7rem;border-radius:10px;color:#2f475d}
+.submenu{
+  display:none;
+  position:absolute; left:0; top:calc(100% + 8px);
+  min-width:280px;
+  background:#fff;
+  border:1px solid #e7edf3;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  padding:8px;
+}
+.submenu a{
+  display:block;
+  padding:10px 12px;
+  border-radius:10px;
+  color:#2f475d;
+  font-size:14px;
+  
+}
 .submenu a:hover{background:#f6f8fb}
 
-
 /* Buttons / CTAs */
-.cta{background:var(--accent);color:#fff;border:0;border-radius:999px;padding:.55rem 1rem;box-shadow:var(--shadow);font-weight:700}
-.cta.hiring{background:var(--brand)}
-.cta.hiring:hover{filter:brightness(1.05)}
+.cta{
+  background:var(--accent);
+  color:#000000;
+  border:0;
+  border-radius:999px;
+  padding:10px 18px;
+  font-size:15px;
+  font-weight:700;
+  box-shadow:var(--shadow);
+}
+  
+.cta.hiring {
+  background-color: #06def6;
+  transition: background-color 0.3s ease;
+}
 
+.cta.hiring:hover {
+  background-color: #e66b00;
+}
 
 /* Mobile */
-.hamburger{display:none;border:1px solid #dbe6ef;border-radius:10px;background:#fff;padding:.45rem .6rem}
+.hamburger{display:none;border:1px solid #dbe6ef;border-radius:10px;background:#fff;padding:8px 10px}
 .menu-wrap{display:block}
+
 @media (max-width:960px){
-.hamburger{display:inline-flex}
-.menu-wrap{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid #e7edf3;display:none}
-.menu-wrap.open{display:block}
-.menu{flex-direction:column;align-items:stretch;padding:.5rem 1rem 1rem}
-.menu>li>a{padding:.7rem .8rem}
-.submenu{position:static;box-shadow:none;border:0;min-width:unset;padding:0;margin:0 0 .5rem;display:none}
-.dropdown.is-open>.submenu{display:block}
+  .hamburger{display:inline-flex}
+  .menu-wrap{
+    position:absolute;left:0;right:0;top:100%;
+    background:#fff;
+    border-bottom:1px solid #e7edf3;
+    display:none;
+  }
+  .menu-wrap.open{display:block}
+  .menu{flex-direction:column;align-items:stretch;padding:8px 16px 16px}
+  .menu>li>a{padding:12px 14px;font-size:15px;}
+  .submenu{position:static;box-shadow:none;border:0;min-width:unset;padding:0;margin:0 0 8px;display:none}
+  .dropdown.is-open>.submenu{display:block}
+}
+
+
+
+/* Navbar Text */
+
+.hero-header {
+  position: relative;
+  z-index: 1;
+  min-height: 600px; /* controls hero height */
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
+    url("/Hero1.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+/* Content overlay */
+.hero-content {
+  position: absolute;
+  top: 50%;         /* center vertically */
+  left: 50%;        /* center horizontally */
+  transform: translate(-50%, -50%);
+  text-align: left;
+  max-width: 800px;
+  padding: 20px;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: #06def6;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #e66b00;
 }
