@@ -1,0 +1,39 @@
+.simple-navbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 0;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 60px; /* adjust as needed */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #0a4aa4; /* your accent blue */
+}

@@ -1,12 +1,34 @@
 // File: src/components/Navbar.jsx
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null); // "retirement" | "ltc" | null
   const wrapRef = useRef(null);
+  const location = useLocation();
+
+
+
+    // Default hero text
+  let heroText = (
+    <>
+      We’re here to make your life <span>better.</span>
+    </>
+  );
+
+  // Override for Burton path
+  if (location.pathname === "/burton") {
+    heroText = (
+      <>
+        Dedicated to making life brighter, <span>together.</span>
+      </>
+    );
+  }
+
+
+   const pageClass = location.pathname === "/burton" ? "burton-header" : "";
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -27,7 +49,7 @@ export default function Navbar() {
    
 
       {/* Sticky main header */}
-<header className="sticky hero-header" role="banner">
+<header className={`sticky hero-header ${pageClass}`} role="banner">
   <div className="container">
     {/* Utility Row */}
     <div className="util-row">
@@ -40,14 +62,16 @@ export default function Navbar() {
         <a href="#">Contact Us</a>
       </div>
       <div className="util-right">
-        <span className="phone">📞 1-833-718-5050</span>
+        <span className="phone">📞 1-416-243-9019</span>
       </div>
     </div>
 
     {/* Main Nav Row */}
     <div className="nav">
       <a className="brand" href="#">
-        <img src="./Logo1.png" alt="Logo"/>
+        
+        <Link to="/"><img src="./Logo1.png" alt="Logo"/></Link>
+
       </a>
 
       {/* Mobile Hamburger */}
@@ -65,24 +89,24 @@ export default function Navbar() {
           <ul id="primaryMenu" className="menu">
             <li className={`dropdown ${openDropdown === "ltc" ? "is-open" : ""}`}>
               <a href="#" onClick={(e)=>{ e.preventDefault(); setOpenDropdown(openDropdown==="ltc"?null:"ltc"); }}>
-                Long-Term & Continuing Care ▾
+                Homes ▾
               </a>
               <div className="submenu">
-                <a href="#">Long-Term Care</a>
-                <a href="#">Complex Continuing Care</a>
-                <a href="#">Respite & Convalescent</a>
+                <Link to='/burton'>Burton Manor</Link>
+                <a href="#">Henley House</a>
+                <a href="#">Henley Place</a>
               </div>
             </li>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Find a Home</a></li>
-            <li><a href="#" className="cta hiring">Hiring Now</a></li>
+            <li><a href="#">Events</a></li>
+            <li><Link to="/careers" className="cta hiring">Hiring Now</Link></li>
           </ul>
         </nav>
       </div>
     </div>
   </div>
     <div className="hero-content">
-    <h1>We’re here to make your life better.</h1>
+    <h1>{heroText}</h1>
     {/* <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.</p> */}
     <a href="#learn-more" className="hero-btn">Discover More</a>
   </div>

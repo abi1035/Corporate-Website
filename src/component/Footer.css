@@ -1,0 +1,133 @@
+/* ---------------------------------- FOOOTER -------------------------------------- */
+
+:root{
+  --footer-bg-start:#ffffff;
+  --footer-bg-end:#ffffff;
+  --on-dark:#e6f2fa;
+  --muted-dark:#9fb1c3;
+  --brand:#06def6;             /* cyan */
+  --brand-orange:#e66b00;      /* warm accent */
+  --brand-green:#31A354;       /* Primacare green */
+  --dark-blue:#0F2B5B;         /* copyright text */
+}
+
+.site-footer{
+  color:var(--on-dark);
+  background:linear-gradient(180deg,var(--footer-bg-start),var(--footer-bg-end));
+  padding:40px 0 0;
+  
+  /* ✅ add green + orange bars */
+  border-top:6px solid var(--brand-orange);
+  border-bottom:6px solid var(--brand-green);
+
+  position: relative; /* keeps children above borders */
+
+  margin-top: 40px;
+}
+
+.container{ max-width:1280px; margin:0 auto; padding:0 24px; }
+
+.footer__grid{
+  display:grid;
+  grid-template-columns: 1fr auto auto; /* logo | links | social */
+  align-items:center;
+  gap:32px;
+}
+
+.footer__brand img{
+  max-width:180px;
+  height:auto;
+  display:block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.2));
+}
+
+/* Links */
+.footer__links{
+  display:grid;
+  grid-template-columns: repeat(2,minmax(140px,1fr));
+  gap:10px 18px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.footer__links a{
+  color:#000; /* black text */
+  text-decoration:none;
+  opacity:.9;
+  padding:8px 10px;
+  border-radius:10px;
+  transition:background .25s ease, color .25s ease, opacity .25s ease;
+}
+.footer__links a:hover,
+.footer__links a:focus-visible{
+  background:rgba(0, 0, 0, 0.08);
+  outline:none;
+  opacity:1;
+}
+
+.footerText{
+  color: #000;
+}
+
+/* Social icons */
+.footer__social{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.footer__social .icon{
+  width:40px; height:40px;
+  display:grid; place-items:center;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  transition:transform .2s ease, background .25s ease;
+}
+/* ✅ use brand-colored SVG fills instead of white */
+.footer__social .icon svg{ width:20px; height:20px; fill:currentColor; opacity:.9; }
+.footer__social .icon.li{ color:#0A66C2; }      /* LinkedIn */
+.footer__social .icon.ig{ color:#E1306C; }      /* Instagram */
+.footer__social .icon:hover{
+  transform:translateY(-2px);
+  background: linear-gradient(135deg, var(--brand), var(--brand-orange));
+}
+
+/* Bottom bar */
+.footer__bar{
+  border-top:1px solid transparent; /* avoid duplicate line, handled by border-bottom */
+  margin-top:28px;
+  padding:14px 0;
+  color:var(--muted-dark);
+  font-size:14px;
+
+  position:relative;
+  z-index:1;  /* ✅ ensures it stays above the orange bar */
+}
+.footer__barInner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.footer__bar .copyright{
+  color: var(--dark-blue); /* ✅ darker blue */
+  font-weight:600;
+}
+.footer__phone{
+  color:#000;
+  text-decoration:none;
+  background:rgba(255,255,255,.06);
+  padding:6px 10px;
+  border-radius:8px;
+  transition:background .25s ease;
+}
+.footer__phone:hover{ background:rgba(0, 0, 0, 0.12); }
+
+/* Responsive */
+@media (max-width:900px){
+  .footer__grid{ grid-template-columns: 1fr; justify-items:center; text-align:center; }
+  .footer__links{ grid-template-columns:repeat(3, minmax(120px,1fr)); }
+  .footer__barInner{ flex-direction:column; }
+}
+@media (max-width:560px){
+  .footer__links{ grid-template-columns:repeat(2, minmax(120px,1fr)); }
+}

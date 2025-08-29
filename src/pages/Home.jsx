@@ -1,3 +1,4 @@
+import Footer from "../component/Footer";
 import "./Home.css";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
         <h1 className="hero__title">
           <span className="highlight">HOME IN </span>
           <span className="highlight">EVERY</span>
-          <span className="highlight highlight--pulse">HEARTBEAT.</span>
+          <span className="highlight highlight--pulse">HEARTBEAT</span>
         </h1>
 
         <p className="hero__sub">
@@ -66,11 +67,90 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section>
-        <h2>Nurturing joy in every moment</h2>
-        <p>At Primacare, joy isn’t left to chance it’s nurtured in every moment. It’s who we are, what we do, and the gift we receive in return. Together, we create homes filled with dignity, comfort, and belonging.</p>
-        <button>Find a home</button>
+
+
+      {/* Second Section */}
+      <div className="secondSectionFull">
+      <section className="feature">
+        <div className="feature__image">
+          <img src="/FeatureImage3.png" alt="Feature" />
+        </div>
+              
+        <div className="feature__content">
+          <h2>Nurturing joy in every moment.</h2>
+          <p>
+At Primacare, we nurture joy in every moment. It’s who we are, what we do, and the gift we receive in return. Together, we create homes filled with dignity, comfort, and belonging.
+          </p>
+          <a href="#learn-more" className="feature__btn"><strong>Find a home</strong></a>
+        </div>
       </section>
+      </div>
+
+
+
+      {/* Our Homes Section */}
+    
+<section className="homes">
+  <h1 className="homes__title">
+    Our <span>Homes</span>
+  </h1>
+
+  <div className="homes__grid">
+    <div className="home-card">
+      <img src="/HenleyPlace.png" alt="Henley Place" />
+      <h3>Henley Place</h3>
+    </div>
+
+    <div className="home-card">
+      <img src="/HenleyHouse.png" alt="Burton Manor" />
+      <h3>Henley House</h3>
+    </div>
+
+    <div className="home-card">
+      <img src="/Burton.png" alt="Primacare Living" />
+      <h3>Burton Manor</h3>
+    </div>
+  </div>
+</section>
+
+
+{/* Accredition Section */}
+
+<section className="affils" aria-labelledby="affils-title">
+  <div className="affils__wrap">
+    <h2 id="affils-title" className="affils__title">
+      <span>Why</span> Primacare?
+    </h2>
+
+    <p className="affils__subtitle">
+      We’re committed to quality care and continuous improvement—recognized by leading
+      healthcare and long-term care organizations.
+    </p>
+
+    {/* If these should link out, wrap each <img> with <a href="..."> */}
+    <ul className="affils__logos" role="list">
+      <li className="affils__item">
+        <img src="/BPSO.png" alt="Best Practice Spotlight Organization (BPSO)" />
+      </li>
+      <li className="affils__item">
+        <img src="/CARF.png" alt="CARF International Accreditation" />
+      </li>
+      <li className="affils__item">
+        <img src="/FamilyCouncil.png" alt="Family Council Support" />
+      </li>
+      <li className="affils__item">
+        <img src="/OLTCA.png" alt="Ontario Long Term Care Association (OLTCA)" />
+      </li>
+      <li className="affils__item">
+        <img src="/OntarioHealth.png" alt="Ontario Health" />
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+{/* FOOTER */}
+<Footer/>
     </main>
   );
 }

@@ -121,7 +121,9 @@ header.sticky .container{
   box-shadow: none;
   padding: 0 24px;
 }
-/* Background image for the navbar */
+
+
+/* ----------------------------Background image for the navbar-------------------------------------- */
 header.sticky.hero-header {
   position: relative;
   --hero-x: 50%;
@@ -141,6 +143,12 @@ header.sticky.hero-header {
   background-repeat: no-repeat;
   /* border: 10px solid red; */
   height: 650px;
+}
+
+header.sticky.hero-header.burton-header {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("/burton1.png");  /* ✅ use Burton image */
 }
 
 /* make sure the white “card” isn’t covering the hero on hero pages */
@@ -230,6 +238,13 @@ nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:16
 .menu>li:focus-within>a,
 .menu>li:hover>a{background:#00c8de;color:#000;}
 
+
+.menu > li.is-open > a {
+  background: #00c8de;
+  color: #000;
+}
+
+
 /* Dropdowns */
 .dropdown{position:relative}
 .dropdown.is-open>.submenu{display:block}
@@ -299,6 +314,7 @@ nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:16
 
 .hero-header {
   position: relative;
+
   z-index: 1;
   min-height: 600px; /* controls hero height */
   background-image:
@@ -313,8 +329,8 @@ nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:16
 /* Content overlay */
 .hero-content {
   position: absolute;
-  top: 50%;         /* center vertically */
-  left: 50%;        /* center horizontally */
+  top: 72%;         /* center vertically */
+  left: 38%;        /* center horizontally */
   transform: translate(-50%, -50%);
   text-align: left;
   max-width: 800px;
