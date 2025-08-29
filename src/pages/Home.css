@@ -7,6 +7,15 @@
   --ring: rgba(15, 23, 42, .08);
   --radius: 18px;
 }
+
+/* WRAPPER CLASS FOR 1280PX WIDTH */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 /* Heartbeat animation */
 .highlight{
   background: var(--highlight);
@@ -51,7 +60,7 @@
   background: var(--bg);
   color: var(--ink);
   padding: clamp(20px, 4vw, 48px);
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
 }
 
@@ -190,11 +199,13 @@
   align-items: center;   /* vertically center */
   justify-content: flex-start;
   gap: 60px;             /* ✅ space between image & text */
-  margin: 60px auto;     /* optional: some breathing room */
-  max-width: 2200px;     /* keeps layout from stretching too wide */
+  margin: 40px auto;     /* optional: some breathing room */
+  margin-bottom: 5px;
+  max-width: 2400px;     /* keeps layout from stretching too wide */
   padding: 0 24px;       /* side padding */
   /* background: linear-gradient(135deg, #E6F9FD 0%, #F0FAEB 100%); */
   background: #f9f9f9c6;
+  height: 400px;
   /* background: #aafea2; */
 }
 
@@ -208,9 +219,9 @@
     0 0 30px rgb(0, 174, 255),
     0 0 45px rgba(0, 174, 255, 0.4);
 
-    animation: pulseGlow 3.5s ease-in-out infinite;
+    /* animation: pulseGlow 3.5s ease-in-out infinite; */
 }
-
+/* 
 @keyframes pulseGlow {
   0% {
     box-shadow:
@@ -230,7 +241,7 @@
       0 0 30px rgba(0, 174, 255, 0.4),
       0 0 45px rgba(0, 174, 255, 0.2);
   }
-}
+} */
 
 /* Right: text */
 .feature__content {

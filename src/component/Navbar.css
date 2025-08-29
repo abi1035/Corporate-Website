@@ -98,7 +98,10 @@ button{font:inherit}
 
 .hero-header .brand,
 .hero-header .util-row a,
-.hero-header .phone { color:#fff; }  /* make utils white too */
+.hero-header .phone { color:#ffffff; }  /* make utils white too */
+
+/*  MEANT FOR UTIL FONTS */
+.util-row a{} 
 
 .hero-header .cta.hiring {
   background:#06def6;
@@ -134,9 +137,10 @@ header.sticky.hero-header {
 
   background-image:
       linear-gradient(
-      rgba(0,0,0,0.55),   /* top fully dark */
-      rgba(0,0,0,0.55)    /* bottom equally dark */
-    ),
+      rgba(0, 0, 0, 0.292),   /* top fully dark */
+      rgba(0, 0, 0, 0.292)    /* bottom equally dark */
+    )
+    ,
     url("/Hero1.png");
   background-size: cover;
    background-position: var(--hero-x) var(--hero-y);

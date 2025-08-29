@@ -5,25 +5,24 @@ export default function Home() {
   return (
     <main className="home">
       {/* HERO */}
-      <section className="hero">
-        <h1 className="hero__title">
-          <span className="highlight">HOME IN </span>
-          <span className="highlight">EVERY</span>
-          <span className="highlight highlight--pulse">HEARTBEAT</span>
-        </h1>
-
-        <p className="hero__sub">
-          <span className="chip">
-            Looking for a place where care meets comfort and every resident is valued?
-          </span>
-          <span className="chip">
-            Primacare offers personalized living that brings dignity, joy, and peace of mind.
-          </span>
-        </p>
-      </section>
+      <section className="hero container">
+  <h1 className="hero__title">
+    <span className="highlight">HOME IN </span>
+    <span className="highlight">EVERY</span>
+    <span className="highlight highlight--pulse">HEARTBEAT</span>
+  </h1>
+  <p className="hero__sub">
+    <span className="chip">
+      Looking for a place where care meets comfort and every resident is valued?
+    </span>
+    <span className="chip">
+      Primacare offers personalized living that brings dignity, joy, and peace of mind.
+    </span>
+  </p>
+</section>
       
       {/* AUTO-SCROLL CARDS */}
-      <section className="carousel" aria-label="Primacare highlights">
+      <section className="carousel container" aria-label="Primacare highlights">
         <div className="carousel__track">
           {/* Repeat the same set twice for seamless looping */}
           {[1, 2].map((loop) => (

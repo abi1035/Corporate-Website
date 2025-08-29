@@ -1,42 +1,44 @@
 import { useState } from "react";
 import "./BurtonManor.css";
 
+import Footer from "../component/Footer";
+
 export default function BurtonManor() {
   const [mapExpanded, setMapExpanded] = useState(false);
 
 //   TABLE DATA
 
-const servicesCare = [
-    "Three nutritious meals daily plus snacks",
-    "Therapeutic & special diets, resident food committee",
-    "Daily social, spiritual & recreational programs (music, pet & horticultural therapy, exercise, cultural events, outings, art & creative classes)",
-    "Pain & symptom management, end-of-life care",
-    "Resident & family councils",
-    "Wi-Fi access for residents & guests",
-    "Butterfly Model of Care for dementia support",
-  ];
+// const servicesCare = [
+//     "Three nutritious meals daily plus snacks",
+//     "Therapeutic & special diets, resident food committee",
+//     "Daily social, spiritual & recreational programs (music, exercise, cultural events, art & creative classes)",
+//     "Pain & symptom management, end-of-life care",
+//     "Resident & family councils",
+//     "Wi-Fi access for residents & guests",
+//     "Butterfly Model of Care for dementia support",
+//   ];
 
-  const personalAttention = [
-    "24/7 nursing & personal care, individualized care planning",
-    "On-site physician, nurse practitioner, dietitian, pharmacist & social worker",
-    "Virtual specialist appointments & behavioural support services",
-    "Physiotherapy, occupational therapy & restorative programs",
-    "Falls prevention & assistive devices for independence",
-  ];
+//   const personalAttention = [
+//     "24/7 nursing & personal care, individualized care planning",
+//     "On-site physician, nurse practitioner, dietitian, pharmacist & social worker",
+//     "Virtual specialist appointments & behavioural support services",
+//     "Physiotherapy, occupational therapy & restorative programs",
+//     "Falls prevention & assistive devices for independence",
+//   ];
 
-  const additionalServices = [
-    "Hairdressing, dental/denture care, foot care, optometry/audiology, mobility services, cable/phone, newspaper delivery",
-    "(*additional charges may apply)",
-  ];
+//   const additionalServices = [
+//     "Hairdressing, dental/denture care, foot care, optometry/audiology, mobility services, cable/phone, newspaper delivery",
+//     "(*additional charges may apply)",
+//   ];
 
-  const amenitiesFeatures = [
-    "Accommodations for up to 128 residents (private, basic, or shared for couples)",
-    "Comfortable living & family rooms, Celebration Room & Chapel",
-    "Art & Crafts Centre, Town Square café & fireplace",
-    "Private courtyards, gardens & BBQ areas",
-    "Well-appointed dining rooms",
-    "Air conditioning retrofit in progress to enhance comfort & safety",
-  ];
+//   const amenitiesFeatures = [
+//     "Accommodations for up to 128 residents (private, basic, or shared for couples)",
+//     "Comfortable living & family rooms, Celebration Room & Chapel",
+//     "Art & Crafts Centre, Town Square café & fireplace",
+//     "Private courtyards, gardens & BBQ areas",
+//     "Well-appointed dining rooms",
+//     "Air conditioning retrofit in progress to enhance comfort & safety",
+//   ];
 
   /* ---------- small helper defined inside this file ---------- */
   const CareBlock = ({ title, icon, items }) => (
@@ -109,7 +111,7 @@ const servicesCare = [
 
 
               {/* NEED TO FIX BUTTON */}
-              {/* <button
+              <button
                 type="button"
                 className="btn-toggle"
                 aria-expanded={mapExpanded}
@@ -117,7 +119,7 @@ const servicesCare = [
                 onClick={() => setMapExpanded(v => !v)}
               >
                 {mapExpanded ? "Close Map" : "Expand Map"}
-              </button> */}
+              </button>
             </div>
 
             
@@ -255,6 +257,82 @@ const servicesCare = [
     </ul>
   </div>
 </section>
+
+<section className="care-block care-block-three">
+  <div className="care-block__text">
+    <h2 className="care-block__title">Culture & Activities</h2>
+    <ul className="care-block__list">
+      <li>Three nutritious meals daily plus snacks</li>
+      <li>Therapeutic & special diets, resident food committee</li>
+      <li>Daily social, spiritual & recreational programs (music, exercise, cultural events, art & creative classes)</li>
+      {/* <li>Pain & symptom management, end-of-life care</li> */}
+      <li>Resident & family councils</li>
+      <li>Wi-Fi access for residents & guests</li>
+      <li>Butterfly Model of Care for dementia support</li>
+    </ul>
+  </div>
+
+  <figure className="care-block__media">
+    <img src="/BurtonHomeImage3.png" alt="Resident enjoying the activities" />
+  </figure>
+</section>
+
+
+{/* AMENITIES SECTIONS */}
+<section className="amenities-simple">
+  <h1 className="amenities-simple__title">Amenities &amp; Features</h1>
+
+  {/* Simple image cards */}
+  <div className="amenities-simple__cards">
+    <div className="amenities-card">
+      <img src="/burtonImageCard1.png" alt="Resident room" />
+    </div>
+    <div className="amenities-card">
+      <img src="/burtonImageCard2.png" alt="Dining room" />
+    </div>
+    <div className="amenities-card">
+      <img src="/burtonImageCard3.png" alt="Courtyard" />
+    </div>
+    <div className="amenities-card">
+      <img src="/burtonImageCard4.png" alt="Community spaces" />
+    </div>
+  </div>
+
+  {/* Two-column lists */}
+  <div className="amenities-simple__lists">
+    <ul>
+      <li>Accommodations for up to 128 residents</li>
+      <li>Private and basic resident rooms</li>
+      <li>Shared accommodations for couples</li>
+      <li>Comfortable living rooms and family rooms</li>
+      <li>A Celebration Room and Chapel</li>
+    </ul>
+
+    <ul>
+      <li>Art &amp; Crafts Centre</li>
+      <li>Town Square with café and fireplace</li>
+      <li>Private courtyards, gardens and barbeque</li>
+      <li>Well-appointed dining rooms</li>
+      <li>Meaningful Care Matters® Butterfly Model of Care for dementia</li>
+    </ul>
+  </div>
+</section>
+
+{/* APPLICATION */}
+<section>
+
+</section>
+
+{/* Contact */}
+<section>
+
+</section>
+
+<section>
+  Add accredition
+</section>
+
+<Footer/>
 
     </main>
   );

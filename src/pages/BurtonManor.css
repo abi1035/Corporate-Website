@@ -235,7 +235,7 @@
   box-sizing: border-box;
 
   /* green corner frame (top + left) */
-  border-top: 10px solid var(--frame-green);
+  border-bottom: 10px solid var(--frame-green);
   border-left: 10px solid var(--frame-green);
   border-radius: 18px;
 
@@ -257,6 +257,11 @@
   border-top: 0;
   border-bottom: 10px solid #e66b00;
   border-left: 10px solid #e66b00;
+}
+
+.care-block-three{
+  border-left: 10px solid #08bfd3;
+  border-bottom: 10px solid #08bfd3;
 }
 
 /* Media (image) */
@@ -318,5 +323,95 @@
   }
   .care-block--reverse .care-block__media{
     order: 0;
+  }
+}
+
+
+/* ------------------------------- AMENETIES AND FEATURES SECTION ----------------------------- */
+/* Section wrapper */
+.amenities-simple {
+  width: 100%;
+  padding: clamp(32px, 5vw, 64px);
+  background: #f9f9f9c6;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Title */
+.amenities-simple__title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 32px;
+  color: #0f172a;
+}
+
+/* Image cards row */
+.amenities-simple__cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.amenities-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 260px;
+}
+
+.amenities-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.amenities-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+/* Two-column lists */
+.amenities-simple__lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.amenities-simple__lists ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.amenities-simple__lists li {
+  margin: 8px 0;
+  position: relative;
+  padding-left: 18px;
+}
+
+.amenities-simple__lists li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .7em;
+  width: 7px; height: 7px;
+  background: #06def6; /* cyan bullet */
+  border-radius: 50%;
+}
+
+/* Stack lists on mobile */
+@media (max-width: 800px) {
+  .amenities-simple__lists {
+    grid-template-columns: 1fr;
   }
 }

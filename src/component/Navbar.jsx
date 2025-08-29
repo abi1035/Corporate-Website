@@ -97,7 +97,7 @@ export default function Navbar() {
                 <a href="#">Henley Place</a>
               </div>
             </li>
-            <li><a href="#">About Us</a></li>
+            <li><Link to='/about'>About Us</Link></li>
             <li><a href="#">Events</a></li>
             <li><Link to="/careers" className="cta hiring">Hiring Now</Link></li>
           </ul>
