@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./BurtonManor.css";
 
 import Footer from "../component/Footer";
+import Accredition from "../component/Accredition";
 
 export default function BurtonManor() {
   const [mapExpanded, setMapExpanded] = useState(false);
@@ -57,6 +58,7 @@ export default function BurtonManor() {
 
 
   return (
+    <>
     <main className="location">
       {/* Page heading */}
       <header className="location__header">
@@ -111,7 +113,7 @@ export default function BurtonManor() {
 
 
               {/* NEED TO FIX BUTTON */}
-              <button
+              {/* <button
                 type="button"
                 className="btn-toggle"
                 aria-expanded={mapExpanded}
@@ -119,13 +121,13 @@ export default function BurtonManor() {
                 onClick={() => setMapExpanded(v => !v)}
               >
                 {mapExpanded ? "Close Map" : "Expand Map"}
-              </button>
+              </button> */}
             </div>
 
             
             <div id="mapPanel" className="map-panel" hidden={!mapExpanded}>
               {/* Example: swap to an embedded interactive map when expanded */}
-                <iframe
+                {/* <iframe
                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d46181.78577286026!2d-79.81465271984061!3d43.66144869550673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x882b151a020b9163%3A0x55a9d746aa617fd0!2s5%20Sterritt%20Dr%2C%20Brampton%2C%20ON%20L6Y%205P3!3m2!1d43.661394!2d-79.7734533!5e0!3m2!1sen!2sca!4v1756442151085!5m2!1sen!2sca"
                   width="100%"
                   height="350"
@@ -134,7 +136,7 @@ export default function BurtonManor() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Burton Manor Location"
-                ></iframe>
+                ></iframe> */}
             </div>
           </section>
 
@@ -222,23 +224,29 @@ export default function BurtonManor() {
 
        {/* ------------------------- SERVICES------------------------------------------------ */}
 
-   {/* Block 1 (default) */}
-<section className="care-block">
+
+{/* Block 1 (default) */}
+  <section className="care-block care-block-three">
   <div className="care-block__text">
-    <h2 className="care-block__title">Personal Attention</h2>
+    <h2 className="care-block__title">Culture & Activities</h2>
     <ul className="care-block__list">
-      <li>24/7 nursing & personal care, individualized care planning</li>
-      <li>On-site physician, nurse practitioner, dietitian, pharmacist & social worker</li>
-      <li>Virtual specialist appointments & behavioural support services</li>
-      <li>Physiotherapy, occupational therapy & restorative programs</li>
-      <li>Falls prevention & assistive devices for independence</li>
+      <li>Three nutritious meals daily plus snacks</li>
+      <li>Therapeutic & special diets, resident food committee</li>
+      <li>Daily social, spiritual & recreational programs (music, exercise, cultural events, art & creative classes)</li>
+      {/* <li>Pain & symptom management, end-of-life care</li> */}
+      <li>Resident & family councils</li>
+      <li>Wi-Fi access for residents & guests</li>
+      <li>Butterfly Model of Care for dementia support</li>
     </ul>
   </div>
 
   <figure className="care-block__media">
-    <img src="/BurtonHomeImage2.png" alt="Resident receiving personal attention" />
+    <img src="/BurtonHomeImage3.png" alt="Resident enjoying the activities" />
   </figure>
 </section>
+
+   
+
 
 {/* Block 2 (image left, no top border) */}
 <section className="care-block care-block--reverse care-block--noTop">
@@ -258,82 +266,156 @@ export default function BurtonManor() {
   </div>
 </section>
 
-<section className="care-block care-block-three">
+
+
+{/* Block 3 */}
+<section className="care-block">
   <div className="care-block__text">
-    <h2 className="care-block__title">Culture & Activities</h2>
+    <h2 className="care-block__title">Personal Attention</h2>
     <ul className="care-block__list">
-      <li>Three nutritious meals daily plus snacks</li>
-      <li>Therapeutic & special diets, resident food committee</li>
-      <li>Daily social, spiritual & recreational programs (music, exercise, cultural events, art & creative classes)</li>
-      {/* <li>Pain & symptom management, end-of-life care</li> */}
-      <li>Resident & family councils</li>
-      <li>Wi-Fi access for residents & guests</li>
-      <li>Butterfly Model of Care for dementia support</li>
+      <li>24/7 nursing & personal care, individualized care planning</li>
+      <li>On-site physician, nurse practitioner, dietitian, pharmacist & social worker</li>
+      <li>Virtual specialist appointments & behavioural support services</li>
+      <li>Physiotherapy, occupational therapy & restorative programs</li>
+      <li>Falls prevention & assistive devices for independence</li>
     </ul>
   </div>
 
   <figure className="care-block__media">
-    <img src="/BurtonHomeImage3.png" alt="Resident enjoying the activities" />
+    <img src="/BurtonHomeImage2.png" alt="Resident receiving personal attention" />
   </figure>
 </section>
 
 
-{/* AMENITIES SECTIONS */}
-<section className="amenities-simple">
-  <h1 className="amenities-simple__title">Amenities &amp; Features</h1>
 
-  {/* Simple image cards */}
-  <div className="amenities-simple__cards">
-    <div className="amenities-card">
-      <img src="/burtonImageCard1.png" alt="Resident room" />
+
+
+    </main>
+    <section className="amenities">
+  {/* Top accent */}
+  {/* <div className="amenities__bar amenities__bar--top" aria-hidden="true" /> */}
+
+  <div className="amenities__wrap">
+    <p className="amenities__eyebrow">Life at Burton Manor</p>
+    <h1 className="amenities__title">Amenities &amp; Features</h1>
+    <p className="amenities__subtitle">
+      Thoughtful spaces for connection, comfort, and everyday joy.
+    </p>
+
+    {/* Gallery */}
+    <div className="amenities__gallery" role="list">
+      <figure className="amenities-card" role="listitem">
+        <img src="/burtonImageCard1.png" alt="Welcoming main entrance" />
+        <figcaption>Entrance &amp; Lobby</figcaption>
+      </figure>
+      <figure className="amenities-card" role="listitem">
+        <img src="/burtonImageCard2.png" alt="Bright corridor and lounge" />
+        <figcaption>Corridors &amp; Lounges</figcaption>
+      </figure>
+      <figure className="amenities-card" role="listitem">
+        <img src="/burtonImageCard3.png" alt="Community living space" />
+        <figcaption>Community Spaces</figcaption>
+      </figure>
+      <figure className="amenities-card" role="listitem">
+        <img src="/burtonImageCard4.png" alt="Garden path and courtyard" />
+        <figcaption>Courtyard &amp; Gardens</figcaption>
+      </figure>
     </div>
-    <div className="amenities-card">
-      <img src="/burtonImageCard2.png" alt="Dining room" />
-    </div>
-    <div className="amenities-card">
-      <img src="/burtonImageCard3.png" alt="Courtyard" />
-    </div>
-    <div className="amenities-card">
-      <img src="/burtonImageCard4.png" alt="Community spaces" />
+
+    {/* Two-column “check cards” */}
+    <div className="amenities__lists">
+      <ul className="checkcard">
+        <li>Accommodations for up to 128 residents</li>
+        <li>Private and basic resident rooms</li>
+        <li>Shared accommodations for couples</li>
+        <li>Comfortable living rooms and family rooms</li>
+        <li>A Celebration Room and Chapel</li>
+      </ul>
+
+      <ul className="checkcard">
+        <li>Art &amp; Crafts Centre</li>
+        <li>Town Square with café and fireplace</li>
+        <li>Private courtyards, gardens, and barbeque</li>
+        <li>Well-appointed dining rooms</li>
+        <li>Meaningful Care Matters® Butterfly Model of Care</li>
+      </ul>
     </div>
   </div>
 
-  {/* Two-column lists */}
-  <div className="amenities-simple__lists">
-    <ul>
-      <li>Accommodations for up to 128 residents</li>
-      <li>Private and basic resident rooms</li>
-      <li>Shared accommodations for couples</li>
-      <li>Comfortable living rooms and family rooms</li>
-      <li>A Celebration Room and Chapel</li>
-    </ul>
-
-    <ul>
-      <li>Art &amp; Crafts Centre</li>
-      <li>Town Square with café and fireplace</li>
-      <li>Private courtyards, gardens and barbeque</li>
-      <li>Well-appointed dining rooms</li>
-      <li>Meaningful Care Matters® Butterfly Model of Care for dementia</li>
-    </ul>
-  </div>
+  {/* Bottom accent */}
+  {/* <div className="amenities__bar amenities__bar--bottom" aria-hidden="true" /> */}
 </section>
 
 {/* APPLICATION */}
-<section>
-
+<section className="application">
+  <h2 className="application__title">Application</h2>
+  <p className="application__text">
+    If you are interested in residency at Burton Manor, an application can be made via:
+  </p>
+  <a
+    href="https://ontariohealthathome.ca/region/central-west/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="application__link"
+  >
+    Ontario Health at Home Central West Office
+  </a>
 </section>
 
 {/* Contact */}
-<section>
+<section className="team-contacts">
+  <h2 className="team-contacts__title">Contact Our Team</h2>
 
+  {/* General Burton Manor Contact */}
+  <div className="team-contacts__general">
+    <h3>Burton Manor Contact</h3>
+    <p><strong>Phone:</strong> <a href="tel:9054551601">905-455-1601</a></p>
+    <p><strong>Email:</strong> <a href="mailto:burton@primacareliving.com">burton@primacareliving.com</a></p>
+    <p><strong>Fax:</strong> 905-455-1033</p>
+  </div>
+
+  {/* Staff cards grid */}
+  <div className="team-contacts__grid">
+    <div className="contact-card">
+      <img src="/staff/bidarekere.jpg" alt="Bidarekere Swamy" />
+      <h3>Bidarekere Swamy</h3>
+      <p>Executive Director</p>
+      <p>ext. 502</p>
+      <a href="mailto:BSwamy@primacareliving.com">BSwamy@primacareliving.com</a>
+    </div>
+
+    <div className="contact-card">
+      <img src="/staff/jyothi.jpg" alt="Jyothi Martis" />
+      <h3>Jyothi Martis</h3>
+      <p>Director of Care</p>
+      <p>ext. 503</p>
+      <a href="mailto:jmartis@primacareliving.com">jmartis@primacareliving.com</a>
+    </div>
+
+    <div className="contact-card">
+      <img src="/staff/vivek.jpg" alt="Vivek Thanikachalam" />
+      <h3>Vivek Thanikachalam</h3>
+      <p>IPAC Lead</p>
+      <p>ext. 607</p>
+      <a href="mailto:vthanikachalam@primacareliving.com">vthanikachalam@primacareliving.com</a>
+    </div>
+
+    <div className="contact-card">
+      <img src="/staff/elvie.jpg" alt="Elvie Briones" />
+      <h3>Elvie Briones</h3>
+      <p>Business Manager</p>
+      <p>ext. 501</p>
+      <a href="mailto:ebriones@primacareliving.com">ebriones@primacareliving.com</a>
+    </div>
+  </div>
 </section>
 
+
 <section>
-  Add accredition
+  <Accredition/>
 </section>
 
 <Footer/>
-
-    </main>
+</>
   );
 }
