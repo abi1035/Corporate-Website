@@ -1,0 +1,102 @@
+.aboutUsNavBrand{
+    height: 80px;
+    margin-top: 5px;
+}
+/* -------------------------- First Section ---------------------------- */
+.AboutUsSection {
+  background: #fff; 
+  padding: 60px 20px;
+}
+
+.aboutFeature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  max-width: 1200px;   /* ✅ keeps it centered */
+  margin: 0 auto;      /* ✅ centers inside page */
+  padding: 0 20px;     /* ✅ keeps spacing on smaller screens */
+}
+
+.aboutContent{
+  flex: 1;
+}
+
+.aboutContent h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #0f172a; /* dark slate */
+}
+
+.aboutContent p {
+  font-size: 1.1rem;
+  color: #475569; /* muted gray */
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.aboutBtn {
+  display: inline-block;
+  background: #06def6; /* cyan brand */
+  color: #002a31;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.3s ease;
+}
+
+.aboutBtn:hover {
+  background: #e66b00; /* warm orange */
+  color: #fff;
+}
+
+/* Image */
+.aboutImage img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2); /* subtle shadow */
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .aboutFeature {
+    flex-direction: column;
+    text-align: center;
+  }
+  .aboutContent {
+    order: 2;
+  }
+  .aboutImage {
+    order: 1;
+  }
+}
+
+
+
+/* ---------------------------------------- SECOND SECTION -------------------------------------------- */
+/* Smooth mobile/desktop behavior already present */
+html { scroll-behavior: smooth; }
+
+/* Sticky left filter under top navbar */
+.side-rail {
+  position: sticky;
+  top: 96px;             /* adjust to your header height */
+  padding: 8px 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Subtle fade when switching sections */
+.fade-grid {
+  animation: fadeIn .25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
