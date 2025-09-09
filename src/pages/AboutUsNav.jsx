@@ -20,7 +20,11 @@ import "./AboutUsNav.css";
 
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
+];
 
 function AboutUsNavBar(props) {
   const { window } = props;
@@ -39,9 +43,13 @@ function AboutUsNavBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.label} disablePadding>
+            <ListItemButton
+              component={Link}   //  tells MUI to render a react-router Link
+              to={item.path}
+              sx={{ textAlign: 'center' }}
+            >
+              <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -81,8 +89,13 @@ function AboutUsNavBar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#000000ff', marginTop:'15px' }}>
-                {item}
+              <Button
+                key={item.label}
+                component={Link}     // ✅ use Link for routing
+                to={item.path}
+                sx={{ color: '#000000ff', marginTop: '15px' }}
+              >
+                {item.label}
               </Button>
             ))}
           </Box>

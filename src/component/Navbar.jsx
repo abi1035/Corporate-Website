@@ -46,6 +46,9 @@ export default function Navbar() {
   return (
     <>
       {/* Utility (top) bar */}
+
+ 
+
    
 
       {/* Sticky main header */}
@@ -57,9 +60,9 @@ export default function Navbar() {
         <a className="badge" style={{color: "#000",}} href="#">Family Resources</a>
         <a href="#">Uplifting News</a>
         <a href="#">Our Advertising</a>
-        <a href="#">Our Blog</a>
+        <a href="#">Quality</a>
         <a href="#">Investors</a>
-        <a href="#">Contact Us</a>
+        <a href="#">Policies</a>
       </div>
       <div className="util-right">
         <span className="phone">📞 1-416-243-9019</span>
@@ -68,11 +71,11 @@ export default function Navbar() {
 
     {/* Main Nav Row */}
     <div className="nav">
-      <a className="brand" href="#">
+  
         
-        <Link to="/"><img src="./Logo1.png" alt="Logo"/></Link>
+        <div className="brand"><Link to="/"><img  src="./Logo1.png" alt="Logo"/></Link></div>
 
-      </a>
+      
 
       {/* Mobile Hamburger */}
       <button
