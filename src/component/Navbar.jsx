@@ -8,6 +8,8 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null); // "retirement" | "ltc" | null
   const wrapRef = useRef(null);
   const location = useLocation();
+  // const [policiesOpen, setPoliciesOpen] = useState(false);
+
 
 
 
@@ -56,14 +58,94 @@ export default function Navbar() {
   <div className="container">
     {/* Utility Row */}
     <div className="util-row">
-      <div className="util-left">
-        <a className="badge" style={{color: "#000",}} href="#">Family Resources</a>
-        <a href="#">Uplifting News</a>
-        <a href="#">Our Advertising</a>
-        <a href="#">Quality</a>
-        <a href="#">Investors</a>
-        <a href="#">Policies</a>
+<div className="util-left">
+  <a className="badge" style={{ color: "#000" }} href="#">Family Resources</a>
+  <a href="#">Uplifting News</a>
+  <a href="#">Our Advertising</a>
+
+  {/* Quality Dropdown */}
+  <div
+    className="util-dropdown"
+    onMouseEnter={() => setOpenDropdown("quality")}
+    onMouseLeave={() => setOpenDropdown(null)}
+  >
+    <a href="#" className="util-trigger">Quality ▾</a>
+
+    <div className={`util-panel ${openDropdown === "quality" ? "open" : ""}`}>
+      <div className="util-columns">
+        {/* Column 1 */}
+        <div className="util-col">
+          <h3>Accreditation</h3>
+          <ul>
+            <li>CARF Accreditation</li>
+            <li>BSPO Standards</li>
+            <li>Resident Satisfaction Surveys</li>
+          </ul>
+        </div>
+
+        {/* Column 2 */}
+        <div className="util-col">
+          <h3>Quality Programs</h3>
+          <ul>
+            <li>Falls Prevention</li>
+            <li>Infection Control</li>
+            <li>Medication Safety</li>
+          </ul>
+        </div>
+
+        {/* Column 3 */}
+        <div className="util-col">
+          <h3>Continuous Improvement</h3>
+          <ul>
+            <li>QIP (Quality Improvement Plan)</li>
+            <li>Internal Audits</li>
+            <li>Best Practice Initiatives</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <a href="#">Investors</a>
+
+  {/* Policies Dropdown */}
+  <div
+    className="util-dropdown"
+    onMouseEnter={() => setOpenDropdown("policies")}
+    onMouseLeave={() => setOpenDropdown(null)}
+  >
+    <a href="#" className="util-trigger">Policies ▾</a>
+
+    <div className={`util-panel ${openDropdown === "policies" ? "open" : ""}`}>
+      <div className="util-columns">
+        {/* Column 1 */}
+        <div className="util-col">
+          <h3>Policies</h3>
+          <ul>
+            <li>Privacy Policy</li>
+            <li>Accessibility Policy</li>
+            <li>Multi-Year Accessibility Plan</li>
+            <li>AODA Accessibility Feedback Process</li>
+            <li>AODA Customer Service Feedback</li>
+            <li>Visitor Policy</li>
+            <li>COVID-19 Testing Policy</li>
+            <li>Passive Screening</li>
+          </ul>
+        </div>
+
+        {/* Column 2 */}
+        <div className="util-col">
+          <h3>Emergency Management</h3>
+          <ul>
+            <li>Emergency Management Plan for Burton Manor</li>
+            <li>Emergency Management Plan for Henley House</li>
+            <li>Emergency Management Plan for Henley Place</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       <div className="util-right">
         <span className="phone">📞 1-416-243-9019</span>
       </div>
@@ -111,7 +193,7 @@ export default function Navbar() {
     <div className="hero-content">
     <h1>{heroText}</h1>
     {/* <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.</p> */}
-    <a href="#learn-more" className="hero-btn">Discover More</a>
+    <Link to='/about'><div className="hero-btn">Discover More</div></Link>
   </div>
 </header>
 

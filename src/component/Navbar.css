@@ -214,6 +214,78 @@ header.sticky.hero-header .nav-card{
 
 
 /* -------------------------- Util megamenu -------------------------- */
+/* Make the util bar the positioning context for the dropdown */
+.util-row { position: relative; }
+
+/* Container/trigger */
+.util-dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 0 6px;
+}
+.util-trigger {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+
+/* Panel (hidden by default) */
+.util-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;                /* anchor to Policies link; change to right:0 if needed */
+  transform: translateY(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  z-index: 1000;
+  /* presentation */
+  background: #232323;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.25);
+  padding: 16px 20px;
+  min-width: 520px;       /* width of the dropdown */
+}
+
+/* Open state */
+.util-panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Headings laid out horizontally, lists vertical inside each column */
+.util-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 headings side-by-side */
+  gap: 28px;
+}
+
+.util-col h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.util-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.util-col li {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Hide the hover dropdown on small screens (optional) */
+@media (max-width: 768px) {
+  .util-panel { display: none; }
+}
+
 
 /* Logo */
 .brand{

@@ -7,7 +7,7 @@ export default function SimpleNavbar() {
       <div className="nav-container">
         {/* Logo */}
         <div className="logo">
-          <img src="/Logo1.png" alt="Primacare Logo" />
+          <Link to='/'><img src="/Logo1.png" alt="Primacare Logo" /></Link>
         </div>
 
         {/* Nav Links */}
