@@ -37,7 +37,16 @@ function AboutUsNavBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Link to="/"><img className='aboutUsBrand' src="./Logo1.png" alt="Logo"/></Link>
+      <Link to="/">
+        <img
+          className="aboutUsNavBrand"
+          src="/Logo1.png"            
+          alt="Primacare logo"
+          width={160}
+          height={48}
+          style={{ objectFit: "contain" }}
+        />
+      </Link>
 
       </Typography>
       <Divider />
@@ -84,14 +93,23 @@ function AboutUsNavBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-                    <Link to="/"><img  className='aboutUsNavBrand' src="./Logo1.png" alt="Logo"/></Link>
+      <Link to="/">
+        <img
+          className="aboutUsNavBrand"
+          src="/Logo1.png"            
+          alt="Primacare logo"
+          width={160}
+          height={48}
+          style={{ objectFit: "contain" }}
+        />
+      </Link>
             
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button
                 key={item.label}
-                component={Link}     // ✅ use Link for routing
+                component={Link}     // use Link for routing
                 to={item.path}
                 sx={{ color: '#000000ff', marginTop: '15px' }}
               >

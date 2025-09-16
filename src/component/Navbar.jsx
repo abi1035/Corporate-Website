@@ -1,6 +1,6 @@
 // File: src/components/Navbar.jsx
 import React, { useEffect, useRef, useState } from "react";
-import { Link,useLocation } from "react-router-dom";
+import { Link,useLocation, } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -60,7 +60,46 @@ export default function Navbar() {
     <div className="util-row">
 <div className="util-left">
   <a className="badge" style={{ color: "#000" }} href="#">Family Resources</a>
-  <a href="#">Uplifting News</a>
+
+
+  {/* News Dropdown */}
+    <div
+    className="util-dropdown"
+    onMouseEnter={() => setOpenDropdown("news")}
+    onMouseLeave={() => setOpenDropdown(null)}
+  >
+    <a href="#" className="util-trigger">News & Events ▾</a>
+
+    <div className={`util-panel ${openDropdown === "news" ? "open" : ""}`}>
+      <div className="util-columns">
+        {/* Column 1 */}
+        <div className="util-col">
+          <h3>Burton Manor</h3>
+          <ul>
+            <li>Newsletter</li>
+            <li>Events</li>
+          </ul>
+        </div>
+
+        {/* Column 2 */}
+        <div className="util-col">
+          <h3>Henley House</h3>
+          <ul>
+            <li>Newsletter</li>
+            <li>Events</li>
+          </ul>
+        </div>
+
+        <div className="util-col">
+          <h3>Henley Place</h3>
+            <ul>
+            <li>Newsletter</li>
+            <li>Events</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <a href="#">Our Advertising</a>
 
   {/* Quality Dropdown */}
@@ -75,38 +114,54 @@ export default function Navbar() {
       <div className="util-columns">
         {/* Column 1 */}
         <div className="util-col">
-          <h3>Accreditation</h3>
+          <h3>Quality Services</h3>
           <ul>
-            <li>CARF Accreditation</li>
-            <li>BSPO Standards</li>
-            <li>Resident Satisfaction Surveys</li>
+            <li>Dementia Care</li>
+            <li>Butterfly Model</li>
+            <li>The Albert Project
+            </li>
+          </ul>
+        </div>
+        
+        <div className="util-col">
+          <h3>Burton Manor</h3>
+          <ul>
+            <li><Link to="/docs/cqiReportsBurton">CQI Report 2025</Link></li>
+            <li><Link to="/docs/narrativeBurton">Narrative 2025</Link></li>
+            <li><Link to="/docs/workplanBurton">Workplan 2025</Link></li>
+            <li><Link to="/docs/progressBurton">Progress Report 2025</Link></li>
+            
           </ul>
         </div>
 
         {/* Column 2 */}
         <div className="util-col">
-          <h3>Quality Programs</h3>
+          <h3>Henley House</h3>
           <ul>
-            <li>Falls Prevention</li>
-            <li>Infection Control</li>
-            <li>Medication Safety</li>
+            <li>CQI Report 2025</li>
+            <li>Narrative 2025</li>
+            <li>Workplan 2025</li>
+            <li>Progress Report 2025</li>
           </ul>
         </div>
 
         {/* Column 3 */}
         <div className="util-col">
-          <h3>Continuous Improvement</h3>
+          <h3>Henley Place</h3>
           <ul>
-            <li>QIP (Quality Improvement Plan)</li>
-            <li>Internal Audits</li>
-            <li>Best Practice Initiatives</li>
+            <li>CQI Report 2025</li>
+            <li>Narrative 2025</li>
+            <li>Workplan 2025</li>
+            <li>Progress Report 2025</li>
           </ul>
         </div>
+        
+
       </div>
     </div>
   </div>
 
-  <a href="#">Investors</a>
+  <a href="#">Ministry Reports</a>
 
   {/* Policies Dropdown */}
   <div
@@ -122,10 +177,10 @@ export default function Navbar() {
         <div className="util-col">
           <h3>Policies</h3>
           <ul>
-            <li>Privacy Policy</li>
+            <li><Link to="/docs/privacy-policy">Privacy Policy</Link></li>
             <li>Accessibility Policy</li>
             <li>Multi-Year Accessibility Plan</li>
-            <li>AODA Accessibility Feedback Process</li>
+            <li>AODA Accessibility Process</li>
             <li>AODA Customer Service Feedback</li>
             <li>Visitor Policy</li>
             <li>COVID-19 Testing Policy</li>

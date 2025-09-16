@@ -5,8 +5,42 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from "react-router-dom";
+
+// Map special Quality cards -> dropdown links
+const QUALITY_LINKS = {
+  "WORKPLAN": [
+    { label: "Burton Manor", to: "/docs/workplanBurton" },
+    { label: "Henley House", to: "/docs/workplan-2023" },
+    { label: "Henley Place", to: "/docs/workplan-archive" },
+  ],
+  "NARRATIVE": [
+    { label: "Burton Manor", to: "/docs/narrativeBurton" },
+    { label: "Henley House", to: "/docs/narrative-2023" },
+    { label: "Henley Place", to: "/docs/narrative-archive" },
+  ],
+  "CQI REPORTS": [
+    { label: "Burton Manor", to: "/docs/cqiReportsBurton" },
+    { label: "Henley House", to: "/docs/cqi-2023" },
+    { label: "Henley Place", to: "/docs/cqi-archive" },
+  ],
+  "PROGRESS REPORT": [
+    { label: "Burton Manor", to: "/docs/progressBurton" },
+    { label: "Henley House", to: "/docs/progress-2023" },
+    { label: "Henley Place", to: "/docs/progress-archive" },
+  ],
+};
 
 export default function MediaCard({ title, description, image }) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const normalized = title?.toUpperCase();
+  const links = QUALITY_LINKS[normalized] || null;
+
+  const handleOpen = (e) => setAnchorEl(e.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
   return (
     <Card
       sx={{
@@ -32,8 +66,31 @@ export default function MediaCard({ title, description, image }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        {links ? (
+          <>
+            <Button size="small" onClick={handleOpen}>
+              Learn More ▾
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              {links.map((link) => (
+                <MenuItem
+                  key={link.to}
+                  component={Link}
+                  to={link.to}
+                  onClick={handleClose}
+                >
+                  {link.label}
+                </MenuItem>
+              ))}
+            </Menu>
+          </>
+        ) : (
+          <Button size="small">Learn More</Button>
+        )}
       </CardActions>
     </Card>
   );

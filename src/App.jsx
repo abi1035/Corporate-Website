@@ -8,6 +8,7 @@ import AboutUsNavBar from "./pages/AboutUsNav";
 import './App.css'
 import BurtonManor from "./pages/BurtonManor";
 import ExecutiveTeam from "./pages/ExecutiveTeam";
+import DocumentView from "./pages/DocumentView";
 
 
 function App() {
@@ -16,19 +17,23 @@ function App() {
   const isCareers = pathname.startsWith("/careers");
   const isAbout = pathname.startsWith("/about");
   const isExecutive= pathname.startsWith("/executive")
+  const isDocs = pathname.startsWith("/docs");
 
 
   
 
   return (
     <>
-      {isCareers ? (
+     {isCareers ? (
         <SimpleNavbar />
       ) : isAbout || isExecutive ? (
         <AboutUsNavBar />
+      ) : isDocs ? (
+        <AboutUsNavBar /> 
       ) : (
         <Navbar />
       )}
+
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,6 +41,7 @@ function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/burton" element={<BurtonManor/>} />
         <Route path="/executive" element={<ExecutiveTeam/>} />
+        <Route path="/docs/:id" element={<DocumentView />} />
       </Routes>
     </>
   )

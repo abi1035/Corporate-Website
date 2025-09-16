@@ -11,15 +11,27 @@ import { Link } from "react-router-dom";
 import './AboutUsNav.css';
 
 const QUALITY_CARDS = [
-  { title: 'High Standards', description: 'We ensure quality through strict protocols and continuous improvement.', image: '/images/quality1.jpg' },
-  { title: 'Resident Safety', description: 'Safety-first environment with staff always available to help.', image: '/images/quality2.jpg' },
-  { title: 'Accreditation', description: 'Recognized by healthcare organizations for excellence in care.', image: '/images/quality3.jpg' },
+  { title: 'CQI Reports', description: 'We ensure quality through strict protocols and continuous improvement.', image: './CQI.png' },
+  { title: 'Narrative', description: 'Safety-first environment with staff always available to help.', image: './Narrative.png' },
+  { title: 'Workplan', description: 'Recognized by healthcare organizations for excellence in care.', image: './workplan.png' },
+  { title: 'Progress Report', description: 'Recognized by healthcare organizations for excellence in care.', image: './progressReport.png' },
+  
 ];
 
 const SERVICES_CARDS = [
-  { title: 'Personal Care', description: '24/7 support including nursing, meals, and daily living assistance.', image: '/images/service1.jpg' },
-  { title: 'Recreational Programs', description: 'Daily activities like music, games, and therapy programs.', image: '/images/service2.jpg' },
-  { title: 'Specialized Care', description: 'Tailored services for dementia, respite, and palliative care.', image: '/images/service3.jpg' },
+  { title: 'Albert Project', description: '24/7 support including nursing, meals, and daily living assistance.', image: '/images/service1.jpg' },
+  { title: 'Butterfly Model', description: 'Daily activities like music, games, and therapy programs.', image: '/images/service2.jpg' },
+  { title: 'Dementia Care', description: 'Tailored services for dementia, respite, and palliative care.', image: '/images/service3.jpg' },
+];
+const NEWS_CARDS = [
+  { title: 'Burton Manor', description: '24/7 support including nursing, meals, and daily living assistance.', image: './bmNews.png' },
+  { title: 'Henley House', description: 'Daily activities like music, games, and therapy programs.', image: './hhNews.png' },
+  { title: 'Henley Place', description: 'Tailored services for dementia, respite, and palliative care.', image: './hplNews.png' },
+];
+const EVENTS_CARDS = [
+  { title: 'Burton Manor', description: '24/7 support including nursing, meals, and daily living assistance.', image: '/BurtonHomeImage3.png' },
+  { title: 'Henley House', description: 'Daily activities like music, games, and therapy programs.', image: './BurtonImage3.png' },
+  { title: 'Henley Place', description: 'Tailored services for dementia, respite, and palliative care.', image: './BurtonHomeImage2.png' },
 ];
 
 function SectionBlock({ title, cards }) {
@@ -46,6 +58,8 @@ export default function About() {
 
   const showQuality  = section === 'all' || section === 'quality';
   const showServices = section === 'all' || section === 'services';
+  const showNews = section === 'all' || section === 'news';
+  const showEvents = section === 'all' || section === 'events';
 
   return (
     <>
@@ -99,15 +113,19 @@ export default function About() {
               }}
             >
               <ToggleButton value="all">All categories</ToggleButton>
-              <ToggleButton value="quality">Quality</ToggleButton>
+              <ToggleButton value="news">Newsletter</ToggleButton>
+              <ToggleButton value="events">Events</ToggleButton>
               <ToggleButton value="services">Services</ToggleButton>
+              <ToggleButton value="quality">Quality</ToggleButton>
             </ToggleButtonGroup>
           </Paper>
         </Box>
 
         {/* Always render headings; filter just hides sections */}
-        {showQuality && <SectionBlock title="Quality" cards={QUALITY_CARDS} />}
+        {showNews && <SectionBlock title="News" cards={NEWS_CARDS} />}
+        {showEvents && <SectionBlock title="Events" cards={EVENTS_CARDS} />}
         {showServices && <SectionBlock title="Services" cards={SERVICES_CARDS} />}
+        {showQuality && <SectionBlock title="Quality" cards={QUALITY_CARDS} />}
       </Container>
     </>
   );
